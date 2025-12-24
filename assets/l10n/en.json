@@ -1,0 +1,45 @@
+{
+  "common": {
+    "app_name": "IntraVision",
+    "ok": "OK",
+    "cancel": "Cancel",
+    "yes": "Yes",
+    "no": "No"
+  },
+
+  "buttons": {
+    "continue": "Continue",
+    "save": "Save",
+    "retry": "Retry",
+    "close": "Close",
+    "login": "Login",
+    "logout": "Logout"
+  },
+
+  "errors": {
+    "general": "Something went wrong",
+    "network": "No internet connection",
+    "timeout": "Request timed out",
+    "unauthorized": "Unauthorized access",
+    "not_found": "Content not found"
+  },
+
+  "states": {
+    "loading": "Loading...",
+    "empty": "No data available",
+    "success": "Operation successful"
+  },
+
+  "auth": {
+    "login_title": "Welcome back",
+    "register_title": "Create account"
+  },
+
+  "navigation": {
+    "home": "Home",
+    "explore": "Explore",
+    "upload": "Upload",
+    "profile": "Profile",
+    "settings": "Settings"
+  }
+}
