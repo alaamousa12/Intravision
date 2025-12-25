@@ -15,13 +15,13 @@ class RouteGenerator {
       case AppRoutes.splash:
         return _page(const SizedBox());
 
-        // case AppRoutes.onboarding:
+        case AppRoutes.onboarding:
         return _page(const SizedBox());
 
       case AppRoutes.login:
         return _page(const SizedBox());
 
-        // case AppRoutes.medicalConsent:
+        case AppRoutes.medicalConsent:
         return _page(const SizedBox());
 
       case AppRoutes.main:
