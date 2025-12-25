@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../../../core/routes/app_routes.dart';
+import '../../../../core/routes/route_guards.dart';
+import '../../../../core/storage/app_storage.dart';
 import 'onboarding_view.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -22,14 +25,34 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     setState(() => _currentIndex = index);
   }
 
-  void _next() {
+  // void _next() {
+  //   if (_currentIndex < 2) {
+  //     _controller.nextPage(
+  //       duration: const Duration(milliseconds: 300),
+  //       curve: Curves.easeOut,
+  //     );
+  //   } else {
+  //     // TODO: navigate to login بعد onboarding
+  //   }
+  // }
+
+ void _next() async {
     if (_currentIndex < 2) {
       _controller.nextPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeOut,
       );
     } else {
-      // TODO: navigate to login بعد onboarding
+      // 1. حفظ حالة اكتمال الـ onboarding
+      await AppStorage.setOnboardingCompleted();
+      
+      // 2. تحديث الـ Guard يدوياً (مؤقتاً)
+      RouteGuards.hasCompletedOnboarding = true;
+
+      if (mounted) {
+        // 3. الانتقال للـ Main (الـ Guard هيشوف إنك مش مسجل دخول فيحولك للـ Login اللي عملناه Scaffold مؤقت)
+        Navigator.pushReplacementNamed(context, AppRoutes.main);
+      }
     }
   }
 

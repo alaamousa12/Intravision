@@ -16,11 +16,15 @@ class AppLocalizations {
   }
 
   Future<void> load() async {
-    final jsonString = await rootBundle.loadString(
-      'assets/i18n/${locale.languageCode}.json',
-    );
-
-    _localizedStrings = json.decode(jsonString);
+    try {
+      final jsonString = await rootBundle.loadString(
+        'assets/i18n/${locale.languageCode}.json',
+      );
+      _localizedStrings = json.decode(jsonString);
+    } catch (e) {
+      debugPrint("Localization Error: $e"); // هيطبع لك السبب في الـ Console
+      _localizedStrings = {}; // هيخليها خريطة فاضية بدل ما يرمي Exception
+    }
   }
 
   String t(String key) {
