@@ -48,6 +48,6 @@ class AppColors {
      Overlays & Disabled
   ======================== */
 
-  static const Color overlayDark = Color(0x99000000);
+  static const Color overlayDark = Color.fromARGB(208, 0, 0, 0);
   static const Color disabled = Color(0xFF9CA3AF);
 }
