@@ -25,18 +25,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     setState(() => _currentIndex = index);
   }
 
-  // void _next() {
-  //   if (_currentIndex < 2) {
-  //     _controller.nextPage(
-  //       duration: const Duration(milliseconds: 300),
-  //       curve: Curves.easeOut,
-  //     );
-  //   } else {
-  //     // TODO: navigate to login بعد onboarding
-  //   }
-  // }
-
- void _next() async {
+  void _next() async {
     if (_currentIndex < 2) {
       _controller.nextPage(
         duration: const Duration(milliseconds: 300),
@@ -45,7 +34,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     } else {
       // 1. حفظ حالة اكتمال الـ onboarding
       await AppStorage.setOnboardingCompleted();
-      
+
       // 2. تحديث الـ Guard يدوياً (مؤقتاً)
       RouteGuards.hasCompletedOnboarding = true;
 

@@ -18,60 +18,34 @@ class RouteGuards {
      MAIN GUARD
   ======================= */
 
-  // static String? guard(String routeName) {
-  //   // 1️⃣ Onboarding
-  //   if (!hasCompletedOnboarding &&
-  //       !_onboardingAllowedRoutes.contains(routeName)) {
-  //     return AppRoutes.onboarding;
-  //   }
+  static String? guard(String routeName) {
+    // Splash NEVER guarded
+    if (routeName == AppRoutes.splash) {
+      return null;
+    }
 
-  //   // 2️⃣ Authentication
-  //   if (hasCompletedOnboarding &&
-  //       !isLoggedIn &&
-  //       !_authAllowedRoutes.contains(routeName)) {
-  //     return AppRoutes.login;
-  //   }
+    // 1️⃣ Onboarding
+    if (!hasCompletedOnboarding &&
+        !_onboardingAllowedRoutes.contains(routeName)) {
+      return AppRoutes.onboarding;
+    }
 
-  //   // 3️⃣ Medical Consent
-  //   if (isLoggedIn &&
-  //       !hasGivenMedicalConsent &&
-  //       !_consentAllowedRoutes.contains(routeName)) {
-  //     return AppRoutes.medicalConsent;
-  //   }
+    // 2️⃣ Authentication
+    if (hasCompletedOnboarding &&
+        !isLoggedIn &&
+        !_authAllowedRoutes.contains(routeName)) {
+      return AppRoutes.login;
+    }
 
-  //   // ✅ Allowed
-  //   return null;
-  // }
+    // 3️⃣ Medical Consent
+    if (isLoggedIn &&
+        !hasGivenMedicalConsent &&
+        !_consentAllowedRoutes.contains(routeName)) {
+      return AppRoutes.medicalConsent;
+    }
 
-
-static String? guard(String routeName) {
-  // Splash NEVER guarded
-  if (routeName == AppRoutes.splash) {
     return null;
   }
-
-  // 1️⃣ Onboarding
-  if (!hasCompletedOnboarding &&
-      !_onboardingAllowedRoutes.contains(routeName)) {
-    return AppRoutes.onboarding;
-  }
-
-  // 2️⃣ Authentication
-  if (hasCompletedOnboarding &&
-      !isLoggedIn &&
-      !_authAllowedRoutes.contains(routeName)) {
-    return AppRoutes.login;
-  }
-
-  // 3️⃣ Medical Consent
-  if (isLoggedIn &&
-      !hasGivenMedicalConsent &&
-      !_consentAllowedRoutes.contains(routeName)) {
-    return AppRoutes.medicalConsent;
-  }
-
-  return null;
-}
 
   /* =======================
      ALLOWED ROUTES
