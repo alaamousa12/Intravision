@@ -5,16 +5,18 @@ import '../bloc/auth_cubit.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: ElevatedButton(
-          child: const Text('Login'),
           onPressed: () {
             context.read<AuthCubit>().login();
+
             Navigator.pushReplacementNamed(context, AppRoutes.main);
           },
+          child: const Text('Login'),
         ),
       ),
     );

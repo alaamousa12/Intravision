@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'app.dart'; // استيراد ملف الـ App الرئيسي
+import 'app.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); 
-  
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(const App());
 }

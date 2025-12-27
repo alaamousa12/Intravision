@@ -1,4 +1,3 @@
-
 class AppRoutes {
   AppRoutes._();
 
