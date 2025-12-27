@@ -52,6 +52,7 @@ class PrimaryButton extends StatelessWidget {
                     title,
                     style: AppFonts.bodyLarge.copyWith(
                       color: AppColors.textPrimary,
+                      // fontWeight: FontWeight.w600,
                     ),
                   ),
                 ],

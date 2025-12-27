@@ -46,9 +46,23 @@ class AppFonts {
     color: AppColors.textSecondary,
   );
 
+  static const TextStyle bodyMedium = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 15,
+    fontWeight: FontWeight.w500, // Medium
+    color: AppColors.textSecondary,
+  );
+
   static const TextStyle bodyRegular = TextStyle(
     fontFamily: fontFamily,
     fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: AppColors.textSecondary,
+  );
+
+  static const TextStyle bodySmall = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 13,
     fontWeight: FontWeight.w400,
     color: AppColors.textSecondary,
   );
