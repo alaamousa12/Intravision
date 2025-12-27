@@ -5,21 +5,23 @@ import '../../../../core/routes/route_guards.dart';
 class OnboardingCubit extends Cubit<bool> {
   OnboardingCubit() : super(false);
 
-  /// تحميل الحالة المحفوظة
+  /// تحميل حالة الـ onboarding من التخزين
   Future<void> load() async {
     final completed = await AppStorage.isOnboardingCompleted();
-    emit(completed);
 
-    // Hydrate Guard
+    if (state == completed) return;
+
+    emit(completed);
     RouteGuards.hasCompletedOnboarding = completed;
   }
 
-  /// إنهاء الـ onboarding
+  /// إنهاء الـ onboarding نهائيًا
   Future<void> complete() async {
-    await AppStorage.setOnboardingCompleted();
-    emit(true);
+    if (state) return;
 
-    // Update Guard
+    await AppStorage.setOnboardingCompleted();
+
+    emit(true);
     RouteGuards.hasCompletedOnboarding = true;
   }
 }
